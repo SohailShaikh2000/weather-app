@@ -1,12 +1,13 @@
 import "./App.css";
-import Header from "./header/header";
+import Header from "./header/Header";
+import Error from "./modals/Error";
 
 function App() {
 
   return (
     <div className="">
       <Header />
-      <h1 className="text-3xl font-bold underline text-amber-50">Hello world!</h1>
+      <Error />
     </div>
   )
 }
