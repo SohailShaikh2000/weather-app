@@ -1,1 +1,12 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Bricolage';
+  src: url('../assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@theme {
+  --font-custom: 'Bricolage', sans-serif;
+}
