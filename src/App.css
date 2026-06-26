@@ -7,6 +7,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'DM-Sans-Italic';
+  src: url('../assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM-Sans';
+  src: url('../assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 @theme {
   --font-custom: 'Bricolage', sans-serif;
+  --font-dm: 'DM-Sans', sans-serif;
+  --font-dm-italic: 'DM-Sans-Italic', sans-serif;
 }
