@@ -14,7 +14,7 @@ const Header = () => {
   }
 
   return (
-    <div className="flex justify-between pb-15">
+    <div className="flex justify-between py-15">
       <img src={logo} alt="" />
       <Dropdown className="text-white" onToggle={handleToggle}>
         <Dropdown.Toggle className="bg-[hsl(243,23%,30%)]! text-[hsl(250,6%,84%)]! px-4 py-2 rounded cursor-pointer flex gap-2">

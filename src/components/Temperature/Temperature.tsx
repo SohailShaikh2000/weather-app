@@ -2,7 +2,7 @@ import Background from "../../../assets/images/bg-today-large.svg";
 import TempLogo from "../../../assets/images/icon-drizzle.webp";
 const Temperature = () => {
   return (
-    <div className="relative font-dm pt-10 pb-6">
+    <div className="relative font-dm pb-6">
       <img src={Background} alt="" className="w-full" />
       <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full items-center px-6">
         <div className="flex flex-col gap-3">
