@@ -1,6 +1,6 @@
 const Elements = () => {
   return (
-    <div className="flex items-center justify-center gap-[4%] font-dm">
+    <div className="flex items-center justify-center gap-[4%] font-dm pb-10">
       <div className="w-[24%] px-6 h-30 py-2 flex flex-col justify-around border border-[#403B5B] bg-[#2A2742]! rounded-lg">
         <p>Feels Like</p>
         <h1 className="text-3xl">

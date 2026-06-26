@@ -1,4 +1,5 @@
 import "./App.css";
+import DailyForecast from "./components/DailyForecast/DailyForecast";
 import Elements from "./components/Elements/Elements";
 import Search from "./components/Search/Search";
 import Temperature from "./components/Temperature/Temperature";
@@ -13,6 +14,7 @@ function App() {
       <Search />
       <Temperature />
       <Elements />
+      <DailyForecast />
       {/* <Error /> */}
     </div>
   )
