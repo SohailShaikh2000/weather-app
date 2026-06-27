@@ -12,7 +12,7 @@ const Search = () => {
           className="bg-[hsl(243,23%,30%)]! text-[hsl(250,6%,84%)]! rounded-md placeholder:text-[17px] px-50 py-2.5 font-medium placeholder:absolute placeholder:top-[25%] placeholder:left-13 cursor-auto outline-none border-none ps-13"
           
         />
-        <button className="text-sm font-medium bg-[hsl(248,70%,36%)] px-5 py-2.5 rounded-md cursor-pointer">
+        <button className="text-sm font-medium bg-blue-500 px-5 py-2.5 rounded-md cursor-pointer">
           Search
         </button>
       </div>
