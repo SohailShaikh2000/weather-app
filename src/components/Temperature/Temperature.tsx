@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Background from "../../../assets/images/bg-today-large.svg";
 import Drizzle from "../../../assets/images/icon-drizzle.webp";
 import Sunny from '../../../assets/images/icon-sunny.webp'
@@ -10,7 +9,7 @@ import Snow from '../../../assets/images/icon-snow.webp'
 
 import { countries } from "country-data";
 
-interface weatherData {
+interface dataType {
   base: string;
   main: {
     temp: number;
@@ -25,12 +24,13 @@ interface weatherData {
   }[];
 }
 
-const Temperature = () => {
-  const [lat, setLat] = useState<number | undefined>(undefined);
-  const [lon, setLon] = useState<number | undefined>(undefined);
-  const [data, setData] = useState<weatherData | null>(null);
+interface TemperatureProps {
+  data: dataType | null;
+}
 
-  const API_key = import.meta.env.VITE_API_KEY;
+const Temperature = ({ data }: TemperatureProps) => {
+
+  console.log('data from temp', data)
 
   const today = new Date();
   const dayNames = [
@@ -62,69 +62,12 @@ const Temperature = () => {
 
   console.log(today);
 
-  function successCallback(position: any) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-
-    // console.log('latitude', latitude)
-    // console.log('longitude', longitude)
-
-    setLat(latitude);
-    setLon(longitude);
-  }
-
-  console.log("lat", lat);
-  console.log("lon", lon);
-
-  function errorCallback(error: GeolocationPositionError) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        console.error("User denied the request for Geolocation.");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        console.error("Location information is unavailable.");
-        break;
-      case error.TIMEOUT:
-        console.error("The request to get user location timed out.");
-        break;
-      default:
-        console.error("An unknown error occurred.");
-    }
-  }
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    } else {
-      console.error("Geolocation is not supported.");
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}weather?lat=${lat}&lon=${lon}&appid=${API_key}`,
-        );
-        const data = await response.json();
-        console.log(data);
-        setData(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    if (lat !== undefined && lon !== undefined) {
-      fetchData();
-    }
-  }, [lat, lon, API_key]);
-
   const tempInCelcius = (tempInKelvin: number): number => {
     return Math.round(tempInKelvin - 273.15);
   };
   if (!data) return <p>Loading...</p>;
 
-  const temp = tempInCelcius(data.main.temp);
+  const temp = tempInCelcius(data.main?.temp);
 
   const weatherImg = (weather: string) => {
     switch(weather) {
@@ -136,7 +79,7 @@ const Temperature = () => {
       case "Drizzle":  return Drizzle;
       case "Clear":  return Sunny;
       case "Foggy": return Fog;
-      case "Storm": return Storm;
+      case "Storm": return Storm
       default: return Sunny;
     }
   }
