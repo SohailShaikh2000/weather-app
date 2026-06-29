@@ -1,6 +1,27 @@
 import SearchIcon from '../../../assets/images/icon-search.svg'
 
-const Search = () => {
+
+interface weatherData {
+  base: string;
+  main: {
+    temp: number;
+  };
+  name: string;
+  sys: { country: string };
+  weather: {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+  }[];
+}
+
+
+interface Props {
+  data: weatherData | null;
+}
+
+const Search = ({data}: Props) => {
   return (
     <div className="flex flex-col items-center justify-center gap-14 font-custom text-4xl font-bold pb-10">
       <h1>How's the sky looking today?</h1>

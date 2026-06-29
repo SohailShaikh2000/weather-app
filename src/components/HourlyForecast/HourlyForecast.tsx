@@ -53,6 +53,7 @@ const forecast = [
   },
 ];
 
+
 const HourlyForecast = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 

@@ -2,6 +2,7 @@ interface dataType {
   main: {
     feels_like: number | undefined;
     humidity: number;
+    temp: number
   };
   wind: {
     speed: number;

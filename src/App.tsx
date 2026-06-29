@@ -12,6 +12,8 @@ interface weatherData {
   base: string;
   main: {
     temp: number;
+    feels_like: number | undefined;
+    humidity: number;
   };
   name: string;
   sys: { country: string };
@@ -21,16 +23,19 @@ interface weatherData {
     description: string;
     icon: string;
   }[];
+  wind: {
+    speed: number;
+  };
 }
 
 function App() {
   const [data, setData] = useState<weatherData | null>(null);
-  const [lat, setLat] = useState();
-  const [lon, setLon] = useState();
+  const [lat, setLat] = useState<number>();
+  const [lon, setLon] = useState<number>();
 
   const API_key = import.meta.env.VITE_API_KEY;
 
-  const successCallback = (position: any) => {
+  const successCallback = (position: GeolocationPosition) => {
     console.log("position", position);
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -61,7 +66,7 @@ function App() {
     } else {
       console.error("Geolocation is not supported");
     }
-  });
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,10 +94,10 @@ function App() {
         <div className="w-[70%]">
           <Temperature data={data}/>
           <Elements data={data}/>
-          <DailyForecast data={data}/>
+          <DailyForecast lat={lat} lon={lon} />
         </div>
         <div className="bg-[#2A2742] px-4 py-6 rounded-2xl w-[30%]">
-          <HourlyForecast data={data}/>
+          <HourlyForecast />
         </div>
       </div>
       {/* <Error /> */}
