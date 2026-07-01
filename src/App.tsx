@@ -72,7 +72,7 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}weather?lat=${lat}&lon=${lon}&appid=${API_key}`,
+          `${import.meta.env.VITE_BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`,
         );
         const data = await response.json();
         setData(data)
@@ -89,7 +89,7 @@ function App() {
   return (
     <>
       <Header />
-      <Search data={data}/>
+      <Search/>
       <div className="flex justify-between max-w-5xl gap-5">
         <div className="w-[70%]">
           <Temperature data={data}/>

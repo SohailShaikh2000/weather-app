@@ -65,7 +65,7 @@ const Temperature = ({ data }: TemperatureProps) => {
   const tempInCelcius = (tempInKelvin: number): number => {
     return Math.round(tempInKelvin - 273.15);
   };
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <img src={Background} alt="" className="w-full" />;
 
   const temp = tempInCelcius(data.main?.temp);
 

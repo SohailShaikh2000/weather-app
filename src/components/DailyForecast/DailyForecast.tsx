@@ -12,7 +12,7 @@ const DailyForecast = ({ lat, lon }: PropTypes) => {
   useEffect(() => {
     const fetchData = async () => {
       const response =
-        await fetch(`${import.meta.env.VITE_BASE_URL}forecast?lat=${lat}&lon=${lon}&appid=${API_key}`);
+        await fetch(`${import.meta.env.VITE_BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}`);
       const data = await response.json();
       console.log("data from DailyForecast", data);
     };
